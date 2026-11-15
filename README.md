@@ -32,13 +32,14 @@ Makefile               统一运行入口
 
 ```sh
 make sim               # 默认运行 PC 测试
-make test              # 运行当前所有测试（目前只有 PC）
+make test              # 运行 PC 和 ALU 测试
+make test-alu          # 单独测试 ALU
 make wave              # 运行 PC 测试并打开波形
 make clean             # 删除生成文件
 ```
 
-测试输出 `PASS: PC increment and reset` 表示通过。波形在 `build/pc/wave.vcd`。
-Surfer 中展开 `tb_pc`，添加 `clk`、`reset`、`value`。
+测试输出 `PASS: PC increment and active-low asynchronous reset` 表示通过。波形在 `build/pc/wave.vcd`。
+Surfer 中展开 `tb_pc`，添加 `clk`、`reset_n`、`value`。
 
 ## 约定
 
@@ -51,3 +52,7 @@ Surfer 中展开 `tb_pc`，添加 `clk`、`reset`、`value`。
 - 暂不建立 Cache、总线、操作系统等目录，到需要实现时再添加。
 
 下一步：按路线实现寄存器堆，并编写 `sim/unit/tb_regfile.v`。
+
+## 自己实现 CPU
+
+模块端口空壳在 `rtl/core/`，内部逻辑由学习者完成。先阅读 [接口与时序约定](docs/interfaces.md)。这些空壳未加入默认测试，现有 PC 示例保持可运行。

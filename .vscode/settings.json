@@ -1,0 +1,23 @@
+{
+    "files.associations": {
+        "*.v": "verilog",
+        "*.vh": "verilog",
+        "*.sv": "systemverilog",
+        "*.svh": "systemverilog"
+    },
+    "verilog.linting.linter": "iverilog",
+    "verilog.linting.path": "/opt/homebrew/bin",
+    "verilog.linting.iverilog.arguments": "-Wall -y rtl/core -y rtl/memory -y sim/models",
+    "[verilog]": {
+        "editor.defaultFormatter": "mshr-h.veriloghdl",
+        "editor.formatOnSave": true
+    },
+    "[systemverilog]": {
+        "editor.defaultFormatter": "mshr-h.veriloghdl",
+        "editor.formatOnSave": true
+    },
+    "verilog.formatting.verilogHDL.formatter": "verible-verilog-format",
+    "verilog.formatting.systemVerilog.formatter": "verible-verilog-format",
+    "verilog.formatting.veribleVerilogFormatter.path": "/opt/homebrew/bin/verible-verilog-format",
+    "verilog.formatting.veribleVerilogFormatter.arguments": "--indentation_spaces=4"
+}
