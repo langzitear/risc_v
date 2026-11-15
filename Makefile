@@ -1,14 +1,16 @@
-.PHONY: sim wave clean
+.PHONY: sim test wave clean
 
-sim: build/sim.out
-	vvp build/sim.out
+sim: build/pc/sim.out
+	cd build/pc && vvp sim.out
 
-build/sim.out: rtl/pc.v sim/tb_pc.v
-	mkdir -p build
+test: sim
+
+build/pc/sim.out: rtl/core/pc.v sim/unit/tb_pc.v
+	mkdir -p build/pc
 	iverilog -g2012 -Wall -s tb_pc -o $@ $^
 
 wave: sim
-	surfer build/wave.vcd
+	surfer build/pc/wave.vcd
 
 clean:
 	rm -rf build

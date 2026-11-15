@@ -10,7 +10,7 @@ module tb_pc;
     always #5 clk = ~clk;
 
     initial begin
-        $dumpfile("build/wave.vcd");
+        $dumpfile("wave.vcd");
         $dumpvars(0, tb_pc);
         @(posedge clk);
         #1;
